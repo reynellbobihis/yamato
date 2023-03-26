@@ -1,12 +1,13 @@
 databases:
   - name: db # Render PG13
-    databaseName: ${DB_NAME}
-    user: ${DB_USERNAME}
+    databaseName: yamato
+    user: yamato_user
     postgresMajorVersion: 13
 
 services:
   - type: redis # Render Redis
     name: redis
+    ipAllowList: []
 
   - type: web
     name: web
@@ -16,3 +17,4 @@ services:
 
   - type: redis # Render Celery Redis
     name: celery-redis
+    ipAllowList: []
