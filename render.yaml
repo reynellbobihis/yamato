@@ -8,13 +8,11 @@ services:
   - type: redis # Render Redis
     name: redis
 
-  - type: redis # Render Celery Redis
-    name: celery-redis
-    buildCommand: ...
-    startCommand: "celery -A config worker -l info"
-
   - type: web
     name: web
     env: python
     buildCommand: ...
     startCommand: "python manage.py runserver 0.0.0.0:8000"
+
+  - type: redis # Render Celery Redis
+    name: celery-redis
